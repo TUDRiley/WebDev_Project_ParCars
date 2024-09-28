@@ -27,11 +27,42 @@ body {
     flex: 1;
 }
 
-/* Sidebars */
-.sidebar {
+/* Left Sidebar */
+.sidebar.left {
     width: 150px;
     background-color: #f4f4f4;
     padding: 10px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    bottom: 0;
+}
+
+/* Right Sidebar */
+.sidebar.right {
+    width: 150px;
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding: 20px;
+}
+
+.copyright-info {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: gray;
     text-align: center;
 }
 
@@ -53,14 +84,14 @@ body {
     border: 2px solid #ccc;
 }
 
-/* Gallery images - Cars*/
+/* Gallery text - CarFaxs*/
 .car-item {
     text-align: center;
 }
 
 /* Sidebar Notes*/
 .sidebar-note {
-    margin-top: 10px; 
+    margin-top: 10px;
     font-size: 14px;
-    color: #555; 
+    color: #555;
 }
