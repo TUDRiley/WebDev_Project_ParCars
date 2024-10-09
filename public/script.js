@@ -171,16 +171,83 @@ const carList = [
 //Descriptions are AI Gen slop
 //https://docsbot.ai/tools/image-description-generator
 
-// Function to display the Car of the Week
+//Get unique colors and features from the car list
+function getUniqueOptions(carList, optionType) {
+    const options = new Set();
+
+    carList.forEach(car => {
+        if (optionType === 'color') {
+            car.color.split(',').forEach(color => options.add(color.trim()));
+        } else if (optionType === 'feature') {
+            car.features.forEach(feature => options.add(feature));
+        }
+    });
+
+    return Array.from(options);
+}
+
+//Function to populate the propdown menus for sorting
+function populateDropdowns() {
+    const colorDropdown = document.getElementById('color-filter');
+    const featureDropdown = document.getElementById('feature-filter');
+
+    //Add "All" option
+    colorDropdown.innerHTML = '<option value="all">All</option>';
+    featureDropdown.innerHTML = '<option value="all">All</option>';
+
+    //Add color options
+    const colors = getUniqueOptions(carList, 'color');
+    colors.forEach(color => {
+        colorDropdown.innerHTML += `<option value="${color}">${color}</option>`;
+    });
+
+    //Add feature options
+    const features = getUniqueOptions(carList, 'feature');
+    features.forEach(feature => {
+        featureDropdown.innerHTML += `<option value="${feature}">${feature}</option>`;
+    });
+}
+
+
+//Fiter the cars by the selected dropdown filtering options
+function filterCars() {
+    const selectedColor = document.getElementById('color-filter').value;
+    const selectedFeature = document.getElementById('feature-filter').value;
+
+    const gallery = document.querySelector(".gallery");
+    gallery.innerHTML = ''; //Clear existing cars
+
+    const filteredCars = carList.filter(car => {
+        const matchesColor = selectedColor === 'all' || car.color.includes(selectedColor);
+        const matchesFeature = selectedFeature === 'all' || car.features.includes(selectedFeature);
+        return matchesColor && matchesFeature;
+    });
+
+    //Display filtered cars
+    filteredCars.forEach(car => {
+        const carDiv = document.createElement("div");
+        carDiv.classList.add("car-item");
+        carDiv.innerHTML = `
+            <img src="${car.image}" alt="${car.name}">
+            <p>${car.name}</p>
+            <p>Color: ${car.color}</p>
+            <p>Wheels: ${car.wheels}</p>
+            <p>Features: ${car.features.join(", ")}</p>
+        `;
+        gallery.appendChild(carDiv);
+    });
+}
+
+//Function to display the Car of the Week
 function displayCarOfTheWeek() {
     const randomCar = carList[Math.floor(Math.random() * carList.length)];
 
-    // Update the car of the week section with the selected car's details
+    //Update the car of the week section with the selected car's details
     const carImage = document.getElementById("car-image");
     const carTitle = document.getElementById("car-title");
     const carDescription = document.getElementById("car-description");
 
-    // Set the car image, alt text, and description
+    //Set the car image, alt text, and description
     carImage.src = randomCar.image;
     carImage.alt = randomCar.name;
     carTitle.textContent = randomCar.name;
@@ -194,12 +261,11 @@ function displayCarOfTheWeek() {
     return randomCar;
 }
 
-
-// Function to display the gallery
+//Function to display the gallery
 function displayCars(carOfTheWeek) {
     const gallery = document.querySelector(".gallery");
 
-    // Filter out the COTW
+    //Filter out the COTW
     const filteredCars = carList.filter(car => car.name !== carOfTheWeek.name);
 
     filteredCars.forEach(car => {
@@ -216,8 +282,13 @@ function displayCars(carOfTheWeek) {
     });
 }
 
-// When the DOM content is fully loaded, run the functions
+
+//When the DOM content is fully loaded, run the functions
 document.addEventListener("DOMContentLoaded", () => {
-    const carOfTheWeek = displayCarOfTheWeek(); //Returns COTW to filter out from the other list
+    populateDropdowns(); //Populate dropdowns with options
+    const carOfTheWeek = displayCarOfTheWeek();
     displayCars(carOfTheWeek);
+
+    //Add event listener to the submit button
+    document.getElementById('filter-submit').addEventListener('click', filterCars);
 });
