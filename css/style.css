@@ -29,7 +29,7 @@ body {
 }
 
 /* Left Sidebar */
-.sidebar.left {
+.sidebar-left {
     width: 150px;
     background-color: #f4f4f4;
     padding: 10px;
@@ -41,7 +41,7 @@ body {
 }
 
 /* Right Sidebar */
-.sidebar.right {
+.sidebar-right {
     width: 150px;
     background-color: #f4f4f4;
     padding: 10px;

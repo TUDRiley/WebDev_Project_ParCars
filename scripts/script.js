@@ -295,18 +295,48 @@ document.addEventListener("DOMContentLoaded", () => {
 // toggle between different colors 
 function changeColor()
 {
+    let sbRight = document.querySelector(".sidebar-right");
+    let sbLeft = document.querySelector('.sidebar-left')
+    let carWeek = document.querySelector(".car-of-the-week")
+
+    let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
+
+
     if (document.body.style.backgroundColor == 'rgb(89, 89, 89)') 
     {
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
 
+            sbRight.style.backgroundColor = "white";
+            sbRight.style.color = "black";
+        
+
+            sbLeft.style.backgroundColor = "white";
+            sbLeft.style.color = "black";
+
+            carWeek.style.backgroundColor="white";
+            carWeek.style.color="black";
+        
     }
 
     else
     {
         document.body.style.backgroundColor = "#595959";
         document.body.style.color = "white";
+
+        sbRight.style.backgroundColor = "#494848";
+        sbRight.style.color = "white";
+        
+        
+        sbLeft.style.backgroundColor = "#494848";
+        sbLeft.style.color = "white";
+
+        carWeek.style.backgroundColor="#595959";
+        carWeek.style.color = "white";
+
     }
+
+    
 
     // to do:
     // change color of sidebar as well
