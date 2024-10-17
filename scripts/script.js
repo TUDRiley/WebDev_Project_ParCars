@@ -299,7 +299,7 @@ function changeColor()
     let sbLeft = document.querySelector('.sidebar-left')
     let carWeek = document.querySelector(".car-of-the-week")
 
-    let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
+    //let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
 
 
     if (document.body.style.backgroundColor == 'rgb(89, 89, 89)') 
@@ -339,7 +339,5 @@ function changeColor()
     
 
     // to do:
-    // change color of sidebar as well
-    // give the theme button an icon
-    // change color of text in the car of the week
+    // make it work for the other pages
 }
