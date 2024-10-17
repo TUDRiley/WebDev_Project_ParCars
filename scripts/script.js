@@ -301,24 +301,24 @@ function changeColor()
     let sbNote = document.querySelector(".sidebar-note");
     //let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
 
-
+    // if the background is grey
     if (document.body.style.backgroundColor == 'rgb(30, 30, 30)') 
     {
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
 
-        sbRight.style.backgroundColor = "white";
+        sbRight.style.backgroundColor = "f4f4f4";
         sbRight.style.color = "black";
     
-        sbLeft.style.backgroundColor = "white";
+        sbLeft.style.backgroundColor = "f4f4f4";
         sbLeft.style.color = "black";
 
-        carWeek.style.backgroundColor="white";
+        carWeek.style.backgroundColor="f9f9f9";
         carWeek.style.color="black";
         
         sbNote.style.color="#555";
     }   
-
+    // turn the background grey
     else
     {
         document.body.style.backgroundColor = "#1e1e1e";
