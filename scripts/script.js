@@ -302,7 +302,7 @@ function changeColor()
     //let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
 
 
-    if (document.body.style.backgroundColor == 'rgb(89, 89, 89)') 
+    if (document.body.style.backgroundColor == 'rgb(30, 30, 30)') 
     {
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
@@ -321,20 +321,20 @@ function changeColor()
 
     else
     {
-        document.body.style.backgroundColor = "#595959";
-        document.body.style.color = "white";
+        document.body.style.backgroundColor = "#1e1e1e";
+        document.body.style.color = "#D3D3D3";
 
-        sbRight.style.backgroundColor = "#494848";
-        sbRight.style.color = "white";
+        sbRight.style.backgroundColor = "#252526";
+        sbRight.style.color = "#D3D3D3";
         
         
-        sbLeft.style.backgroundColor = "#494848";
-        sbLeft.style.color = "white";
+        sbLeft.style.backgroundColor = "#252526";
+        sbLeft.style.color = "#D3D3D3";
 
-        carWeek.style.backgroundColor="#595959";
-        carWeek.style.color = "white";
+        carWeek.style.backgroundColor="#1e1e1e";
+        carWeek.style.color = "#D3D3D3";
 
-        sbNote.style.color="#D3D3D3";
+        //sbNote.style.color="#333333";
     }
 
     
