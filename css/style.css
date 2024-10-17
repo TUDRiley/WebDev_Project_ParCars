@@ -155,3 +155,10 @@ body {
     display: block;
 
   }
+
+  .theme {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+    
+  }

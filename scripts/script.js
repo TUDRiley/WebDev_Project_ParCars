@@ -292,3 +292,24 @@ document.addEventListener("DOMContentLoaded", () => {
     //Add event listener to the submit button
     document.getElementById('filter-submit').addEventListener('click', filterCars);
 });
+// toggle between different colors 
+function changeColor()
+{
+    if (document.body.style.backgroundColor == 'rgb(89, 89, 89)') 
+    {
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+
+    }
+
+    else
+    {
+        document.body.style.backgroundColor = "#595959";
+        document.body.style.color = "white";
+    }
+
+    // to do:
+    // change color of sidebar as well
+    // give the theme button an icon
+    // change color of text in the car of the week
+}
