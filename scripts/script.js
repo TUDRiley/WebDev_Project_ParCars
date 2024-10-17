@@ -296,9 +296,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function changeColor()
 {
     let sbRight = document.querySelector(".sidebar-right");
-    let sbLeft = document.querySelector('.sidebar-left')
-    let carWeek = document.querySelector(".car-of-the-week")
-
+    let sbLeft = document.querySelector('.sidebar-left');
+    let carWeek = document.querySelector(".car-of-the-week");
+    let sbNote = document.querySelector(".sidebar-note");
     //let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
 
 
@@ -307,17 +307,17 @@ function changeColor()
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
 
-            sbRight.style.backgroundColor = "white";
-            sbRight.style.color = "black";
-        
+        sbRight.style.backgroundColor = "white";
+        sbRight.style.color = "black";
+    
+        sbLeft.style.backgroundColor = "white";
+        sbLeft.style.color = "black";
 
-            sbLeft.style.backgroundColor = "white";
-            sbLeft.style.color = "black";
-
-            carWeek.style.backgroundColor="white";
-            carWeek.style.color="black";
+        carWeek.style.backgroundColor="white";
+        carWeek.style.color="black";
         
-    }
+        sbNote.style.color="#555";
+    }   
 
     else
     {
@@ -334,6 +334,7 @@ function changeColor()
         carWeek.style.backgroundColor="#595959";
         carWeek.style.color = "white";
 
+        sbNote.style.color="#D3D3D3";
     }
 
     
