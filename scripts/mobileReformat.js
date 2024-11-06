@@ -75,6 +75,7 @@ function checkMobileStyles() {
             });
         }
     } else { //If we ran on a desktop page
+        /*
         if (sidebarToggle) {
             sidebarToggle.style.display = 'none';
         }
@@ -84,6 +85,7 @@ function checkMobileStyles() {
         contentArea.style.marginLeft = '250px';
         contentArea.style.marginRight = '250px';
         contentArea.style.padding = '20px';
+        */
     }
 }
 

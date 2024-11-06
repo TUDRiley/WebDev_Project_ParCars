@@ -1,27 +1,27 @@
 const Events = [
     {
         name: "Event1",
-        image: "media/events/Event1.png",
+        image: "../media/Cars/BeatlesGarbageTruck.png",
         descriptionText: "Event1"
     },
     {
         name: "Event2",
-        image: "media/events/Event2.png",
+        image: "../media/Cars/BeatlesGarbageTruck.png",
         descriptionText: "Event2"
     },
     {
         name: "Event3",
-        image: "media/events/Event3.png",
+        image: "../media/Cars/BeatlesGarbageTruck.png",
         descriptionText: "Event3"
     },
     {
         name: "Event4",
-        image: "media/events/Event4.png",
+        image: "../media/Cars/BeatlesGarbageTruck.png",
         descriptionText: "Event4"
     },
     {
         name: "Event5",
-        image: "media/events/Event5.png",
+        image: "../media/Cars/BeatlesGarbageTruck.png",
         descriptionText: "Event5"
     },
 ]
