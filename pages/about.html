@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Wheels On Fire</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>About Us - Wheels On Fire</title>
+    <link rel="stylesheet" href="../css/style.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="../css/mobile.css" media="screen and (max-width: 768px)">
     <link rel="icon" href="../media/photos/favicon.ico" type="image/x-icon">
 </head>
-<body class="bgcolor">
+
+<body>
+    <script src="../scripts/themes.js"></script>
     <!-- Top bar -->
     <div class="top-bar">
-        <img src="../media/photos/banner.jpg" alt="Wheels On Fire Banner" style="width: 100%; height: 100%;">
+        <img src="../media/photos/banner.jpg" alt="Wheels On Fire Banner" class="banner-image">
     </div>
 
     <!-- Main layout -->
     <div class="layout">
         <!-- Left sidebar -->
-        <div class="sidebar-left">
+        <div class="sidebar-left" id="sidebar-left">
             <h2>Navigation</h2>
             <div class="sidebar-note">Home</div>
             <a href="../index.html">Home Page</a>
             <div class="sidebar-note">About</div>
-            <a href="about.html">About Us</a>
+            <a href="../pages/about.html">About Us</a>
             <div class="sidebar-note">Contact</div>
-            <a href="contact.html">Contact Page</a>
+            <a href="../pages/contact.html">Contact Page</a>
+            <!-- Switch Theme Button -->
+            <div class="theme">
+                <br>
+                <button onclick="changeColor()" type="button">Switch Theme</button>
+            </div>
+            <br>
         </div>
+
         <!-- Main content area -->
         <div class="content">
             <h1>About Us</h1>
-        <div class="box">
-            <img src="../media/photos/John.png" alt="John O'Reilly" style="width: 25%; height: auto;">
-        </div>
+            <div class="box">
+                <img src="../media/photos/John.png" alt="John O'Reilly" style="width: 25%; height: auto;">
+            </div>
             <p>Hey there, I'm John O'Reilly, the proud owner
                 of Wheels on Fire. I've been in the car
                 business for as long as I can remember, and I
                 love a well-tuned engine. I'm a bit of a
                 perfectionist — maybe even more with cars
                 than with people, if I'm honest. </p>
-        </div>  
+        </div>
 
+        <!-- Right sidebar -->
+        <div class="sidebar-right" id="sidebar-right" style="Display:none">
+            <h2></h2>
+            <div class="sidebar-note"><!-- Additional sidebar content can go here --></div>
+        </div>
 
-
-
-
-
-
+    </div>
+    <script src="../scripts/mobileReformat.js"></script>
 </body>
+
 </html>

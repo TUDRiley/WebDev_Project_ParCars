@@ -91,7 +91,7 @@ const carList = [
         name: "Pink Car",
         color: "Pink, White",
         wheels: 4,
-        features: ["stylish", "sleek", "decorative","tinted windows"],
+        features: ["stylish", "sleek", "decorative", "tinted windows"],
         image: "media/Cars/PinkCar.png",
         descriptionText: "A pink toy sports car featuring a sleek, aerodynamic design. The body is adorned with decorative white graphics, including sharp lines and abstract patterns, giving it a vibrant and stylish appearance. The car is equipped with a large rear spoiler and has tinted windows. The wheels are detailed with metallic silver rims, and the overall look is sporty and eye-catching, suitable for a collectible or a child's play item."
     },
@@ -112,7 +112,7 @@ const carList = [
         descriptionText: "A sleek red toy sports car with a streamlined body, reminiscent of classic American muscle cars. The toy features a glossy finish and intricate detailing along the hood and sides. The wheels are black with a sturdy, durable design, adding to the vehicle's sporty appearance. The windows are tinted, and the front and rear of the car are designed to mimic the iconic shapes of vintage high-performance vehicles."
     },
     {
-        name: "Red Car",
+        name: "Other Red Car",
         color: "Red, White",
         wheels: 4,
         features: ["racing stripes", "intricate graphic on sides", "low profile", "wide racing wheels"],
@@ -282,7 +282,6 @@ function displayCars(carOfTheWeek) {
     });
 }
 
-
 //When the DOM content is fully loaded, run the functions
 document.addEventListener("DOMContentLoaded", () => {
     populateDropdowns(); //Populate dropdowns with options
@@ -292,53 +291,3 @@ document.addEventListener("DOMContentLoaded", () => {
     //Add event listener to the submit button
     document.getElementById('filter-submit').addEventListener('click', filterCars);
 });
-// toggle between different colors 
-function changeColor()
-{
-    let sbRight = document.querySelector(".sidebar-right");
-    let sbLeft = document.querySelector('.sidebar-left');
-    let carWeek = document.querySelector(".car-of-the-week");
-    let sbNote = document.querySelector(".sidebar-note");
-    //let bodyBgColor = window.getComputedStyle(document.body).backgroundColor;
-
-    // if the background is grey
-    if (document.body.style.backgroundColor == 'rgb(30, 30, 30)') 
-    {
-        document.body.style.backgroundColor = "white";
-        document.body.style.color = "black";
-
-        sbRight.style.backgroundColor = "f4f4f4";
-        sbRight.style.color = "black";
-    
-        sbLeft.style.backgroundColor = "f4f4f4";
-        sbLeft.style.color = "black";
-
-        carWeek.style.backgroundColor="f9f9f9";
-        carWeek.style.color="black";
-        
-        sbNote.style.color="#555";
-    }   
-    // turn the background grey
-    else
-    {
-        document.body.style.backgroundColor = "#1e1e1e";
-        document.body.style.color = "#D3D3D3";
-
-        sbRight.style.backgroundColor = "#252526";
-        sbRight.style.color = "#D3D3D3";
-        
-        
-        sbLeft.style.backgroundColor = "#252526";
-        sbLeft.style.color = "#D3D3D3";
-
-        carWeek.style.backgroundColor="#1e1e1e";
-        carWeek.style.color = "#D3D3D3";
-
-        //sbNote.style.color="#333333";
-    }
-
-    
-
-    // to do:
-    // make it work for the other pages
-}
