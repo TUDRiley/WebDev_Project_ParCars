@@ -1,4 +1,4 @@
-// toggle between light and dark modes
+// Toggle between light and dark modes
 function changeColor() {
     let sbRight = document.querySelector(".sidebar-right");
     let sbLeft = document.querySelector('.sidebar-left');
@@ -6,8 +6,9 @@ function changeColor() {
     let sbNote = document.querySelector(".sidebar-note");
     let mobileSidebar = document.querySelector("#mobile-sidebar");
 
-    // Check if the current background color is dark or light
-    if (document.body.style.backgroundColor === 'rgb(30, 30, 30)') {
+    // Check if the current background color is dark 
+    if (document.body.style.backgroundColor === 'rgb(30, 30, 30)') 
+    {
         // Light Mode
         document.body.style.backgroundColor = "white";
         document.body.style.color = "black";
@@ -27,7 +28,8 @@ function changeColor() {
 
         mobileSidebar.style.backgroundColor = "#f4f4f4";
         mobileSidebar.style.color = "black";
-    } else {
+    } else 
+    {
         // Dark Mode
         document.body.style.backgroundColor = "#1e1e1e";
         document.body.style.color = "#D3D3D3";
@@ -38,7 +40,8 @@ function changeColor() {
         sbLeft.style.backgroundColor = "#252526";
         sbLeft.style.color = "#D3D3D3";
 
-        if (carWeek) {
+        if (carWeek)
+        {
             carWeek.style.backgroundColor = "#1e1e1e";
             carWeek.style.color = "#D3D3D3";
         }
