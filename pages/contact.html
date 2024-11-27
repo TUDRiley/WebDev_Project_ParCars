@@ -44,19 +44,23 @@
             <p>Complete this form and someone on our team will reach out to you as soon as possible.</p>
             <h6>It could take 2-4 business days for a response</h6>
 
-            <form>
-                <label for="fullname">Full name:</label><br>
-                <input type="text" id="fullname" name="fullname" value=""><br>
-                <label for="phonenumber">Phone number:</label><br>
-                <input type="text" id="phonenumber" name="phonenumber" value=""><br>
+            <form id="contactForm">
+                <label for="firstname">First name:</label><br>
+                <input type="text" id="firstname" name="firstname" value=""><br>
+                <label for="lastname">Last name:</label><br>
+                <input type="text" id="lastname" name="lastname" value=""><br>
                 <label for="email">Email:</label><br>
                 <input type="text" id="email" name="email" value=""><br>
                 <label for="subject">Subject:</label><br>
-                <input type="text" id="subject" name="subject" value=""><br>
+                <select id="subject" name="subject">
+                    <option value="general">General</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="technical">Technical Support</option>
+                </select><br>
                 <label for="message">Message:</label><br>
                 <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
 
-                <input type="submit" value="Submit">
+                <button type="submit" id="submitButton">Submit</button>
             </form>
         </div>
 
@@ -68,6 +72,59 @@
 
     </div>
     <script src="../scripts/mobileReformat.js"></script>
+    <script>
+        const form = document.getElementById("contactForm");
+        const submitButton = document.getElementById("submitButton");
+
+        function validateForm() {
+            const firstName = document.getElementById("firstname").value.trim();
+            const lastName = document.getElementById("lastname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const submitButton = document.getElementById("submitButton");
+
+            // Regex Patterns
+            const namePattern = /^[A-Za-z]+$/; // Only letters
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // *@*.*
+
+            // Validation Bools
+            const isFirstNameValid = namePattern.test(firstName);
+            const isLastNameValid = namePattern.test(lastName);
+            const isEmailValid = emailPattern.test(email);
+            const isMessageValid = message.length > 0;
+
+            // If field is invalid add it to the array missingFields
+            const missingFields = [];
+            if (!isFirstNameValid) missingFields.push("First Name");
+            if (!isLastNameValid) missingFields.push("Last Name");
+            if (!isEmailValid) missingFields.push("Email");
+            if (!isMessageValid) missingFields.push("Message");
+
+            // Retrun array of invalids
+            return missingFields;
+        }
+
+        // Event listeners to validate on input change
+        form.addEventListener("input", validateForm);
+        document.getElementById("contactForm").addEventListener("submit", (event) => {
+            const missingFields = validateForm();
+            // Array contains anything let the user know whats invalid/missing
+            if (missingFields.length > 0) {
+                event.preventDefault();
+                alert(`The following fields are missing or invalid: ${missingFields.join(", ")}`);
+                // Popup window that says Entry, Entry, Entry
+            } else { // No invalid entries
+                event.preventDefault();
+                document.getElementById("firstname").value = "";
+                document.getElementById("lastname").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("subject").value = "general"; // Reset to default value
+                document.getElementById("message").value = "";
+                console.log("Form cleared :3 otherwise it breaks darkmode"); // <-- this just logging it for debugging stuffs
+            }
+        });
+    </script>
 </body>
 
 </html>

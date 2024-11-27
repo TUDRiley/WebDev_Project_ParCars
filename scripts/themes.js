@@ -3,7 +3,7 @@ function changeColor() {
     let sbRight = document.querySelector(".sidebar-right");
     let sbLeft = document.querySelector('.sidebar-left');
     let carWeek = document.querySelector(".car-of-the-week");
-    let sbNote = document.querySelector(".sidebar-note");
+    let sbNote = document.querySelectorAll(".sidebar-note");
     let mobileSidebar = document.querySelector("#mobile-sidebar");
 
     // Check if the current background color is dark or light
@@ -45,8 +45,10 @@ function changeColor() {
             carWeek.style.backgroundColor = "#1e1e1e";
             carWeek.style.color = "#D3D3D3";
         }
+        sbNote.forEach(note => {
+            note.style.color = "#add7ff";
+        });
 
-        sbNote.style.color = "#D3D3D3";
         if (mobileSidebar) {
             mobileSidebar.style.backgroundColor = "#252526";
             mobileSidebar.style.color = "#D3D3D3";
@@ -78,8 +80,26 @@ function updateLinks() {
         let linkUrl = new URL(link.href, window.location.origin);
         if (darkmode === "1") {
             linkUrl.searchParams.set("dark", "1");
+            // Add inline CSS styling for darkmode visited links to appear as light gray vs dark purple
+            const style = document.createElement("style");
+            style.innerHTML = `
+                a.dynamic-link:visited {
+                    color: #42675a;
+                }
+                a.dynamic-link:link {
+                    color: #27e8a7;
+                }
+            `;
+            document.head.appendChild(style);
         } else {
             linkUrl.searchParams.delete("dark");
+            // Remove inline styling for visited links if toggling off darkmode
+            const existingStyles = document.querySelectorAll('style');
+            existingStyles.forEach(style => {
+                if (style.innerHTML.includes("a.dynamic-link:visited") || style.innerHTML.includes("a.dynamic-link:link")) {
+                    style.remove();
+                }
+            });
         }
         link.href = linkUrl.toString();
     });
