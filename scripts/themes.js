@@ -7,8 +7,7 @@ function changeColor() {
     let mobileSidebar = document.querySelector("#mobile-sidebar");
 
     // Check if the current background color is dark 
-    if (document.body.style.backgroundColor === 'rgb(30, 30, 30)') 
-    {
+    if (document.body.style.backgroundColor === 'rgb(30, 30, 30)') {
         // Light Mode
         removeDarkModeParam();
         document.body.style.backgroundColor = "white";
@@ -25,7 +24,9 @@ function changeColor() {
             carWeek.style.color = "black";
         }
 
-        sbNote.style.color = "#555";
+        sbNote.forEach(note => {
+            note.style.color = "#555";
+        });
         if (mobileSidebar) {
             mobileSidebar.style.backgroundColor = "#f4f4f4";
             mobileSidebar.style.color = "black";
@@ -42,8 +43,7 @@ function changeColor() {
         sbLeft.style.backgroundColor = "#252526";
         sbLeft.style.color = "#D3D3D3";
 
-        if (carWeek)
-        {
+        if (carWeek) {
             carWeek.style.backgroundColor = "#1e1e1e";
             carWeek.style.color = "#D3D3D3";
         }
@@ -64,6 +64,7 @@ function addDarkModeParam() {
     let url = new URL(window.location);
     url.searchParams.set("dark", "1");
     window.history.replaceState({}, "", url);
+    updateLinks();
 }
 
 // Remove dark param
@@ -71,6 +72,7 @@ function removeDarkModeParam() {
     let url = new URL(window.location);
     url.searchParams.delete("dark");
     window.history.replaceState({}, "", url);
+    updateLinks();
 }
 
 // Update all links
